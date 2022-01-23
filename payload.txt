@@ -1,0 +1,11 @@
+const {session} = require('electron')
+// mapsut
+const ses = session.defaultSession
+ses.webRequest.onBeforeRequest((details, callback) => {
+  const { url } = details
+  console.log("monke", url)
+  if (url.endsWith('.mp3') && url.includes('knock_brush') && !url.endsWith("%MP3_URL%")) // cancel the request
+    callback({ redirectURL: "%MP3_URL%" })
+  else // let the request happen
+    callback({})
+})
