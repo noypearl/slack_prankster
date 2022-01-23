@@ -1,5 +1,3 @@
-"# slack_prankster" 
-
 ## What?
 Now it is possible to change sound notifications to any sound you'd like on slack.
 We are not prone to the good will of future slack developers anymore. We can use ANY sound we'd like (windows XP startup sound - here we go!)
@@ -38,5 +36,5 @@ TBD
 
 <br>
 
-###Credits
+### Credits
 During Covid we had too much time on our hands, so both [my little bro](https://il.linkedin.com/in/dolevpearl) and I worked on this 
