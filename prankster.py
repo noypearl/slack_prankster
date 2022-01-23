@@ -24,13 +24,14 @@ def main(args):
     # extract Slack app source code
     with tempfile.TemporaryDirectory() as temp_dir:
         run_command(f"asar extract {asar_file_path} {temp_dir}")
-        # replace mp3 url with
+        # replace mp3 url with injected one
         target_file_path = os.path.join(temp_dir, "dist", 'main.bundle.js')
         with open(PAYLOAD_FILE_PATH, "r") as payload_file:
             payload = payload_file.read().replace("%MP3_URL%", args.mp3_url)
 
         with open(target_file_path, "r") as target_file:
             target_file_content = target_file.read()
+            # check for specific string to avoid injecting repeating useless injections
             if 'mapsut' in target_file_content:
                 # Payload is already injected
                 print("Payload already injected. Exiting...")
